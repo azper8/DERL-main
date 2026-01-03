@@ -1,0 +1,36 @@
+env:
+  center_num: 10
+  edge_num: 10
+  evalNum: 1
+  lambda_rate: 0.2
+  mobile_num: 3
+  name: WorkflowScheduling
+  seed: 52
+  validNum: 30
+  wf_num: 20
+  wf_size: small
+optim:
+  generation_num: 300
+  input_clip: false
+  input_clip_value_max: null
+  input_clip_value_min: null
+  input_running_mean_std: true
+  learning_rate: 0.001
+  learning_rate_decay: 0.9999
+  maximization: true
+  name: mpes
+  population_size: 40
+  reinforce_learning_rate: 0.001
+  reward_norm: false
+  reward_shaping: true
+  sigma_decay: 1
+  sigma_init: 0.02
+  weight_decay: 0.0
+policy:
+  action_num: 1
+  action_type: greedy
+  add_gru: false
+  d_model: 16
+  discrete_action: true
+  name: rl
+  state_num: 8

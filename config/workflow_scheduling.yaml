@@ -1,0 +1,50 @@
+# 工作流调度环境配置
+
+# 环境配置部分
+env:
+  seed: 52  # 固定随机种子，确保实验可重复
+  name: WorkflowScheduling  # 环境名称：工作流调度
+
+  # 工作流配置
+  mobile_num : 3
+  edge_num: 10
+  center_num : 10
+  lambda_rate : 0.2
+  wf_size: small  # 工作流规模
+  urgency: tight # 无效
+  wf_num: 20  # 每个实例中的工作流数量
+  evalNum: 1  # 训练过程中用于评估每个个体的测试实例数量
+  validNum: 30  # 测试过程中用于验证性能的问题实例数量
+
+# 策略模型配置
+policy:
+  name: rl  # 策略模型名称(grl/rl/gp)
+  state_num: 8  # 状态维度
+  action_num: 1  # 动作维度
+  d_model: 16
+  discrete_action: True  # 是否离散动作
+  add_gru: False  # 是否在模型中添加GRU层
+  action_type: greedy  # 动作选择类型：greedy(贪婪)/sampling(采样)
+
+# 优化器配置
+optim:
+  name: mpes  # 优化器名称
+  generation_num: 300  # 训练的总代数
+  population_size: 40  # 种群大小
+  maximization: True  # 是否为最大化问题（True表示最大化奖励）
+  input_running_mean_std: True  # 是否对输入进行运行均值/标准差归一化
+  input_clip: False  # 是否对输入进行裁剪
+  input_clip_value_min: Null  # 输入裁剪最小值（未设置）
+  input_clip_value_max: Null  # 输入裁剪最大值（未设置）
+  reward_shaping: True  # 是否使用奖励塑形（调整原始奖励信号）
+  reward_norm: False  # 是否对奖励进行归一化
+  
+  # 噪声相关参数
+  sigma_init: 0.02  # 初始噪声标准差（探索强度）
+  sigma_decay: 1.0  # 噪声衰减系数（1.0表示不衰减）
+  
+  # 学习率相关参数
+  learning_rate: 0.001  # 基础学习率
+  learning_rate_decay: 0.9999  # 学习率衰减系数
+  reinforce_learning_rate: 0.001  # 强化学习率（用于策略梯度更新）
+  weight_decay: 0.0  # 权重衰减（L2正则化系数）
