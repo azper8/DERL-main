@@ -31,7 +31,7 @@ python main.py
 
 ```bash
 
-python eval_rl.py
+python eval.py
 
 ```
 
