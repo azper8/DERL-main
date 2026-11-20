@@ -31,11 +31,15 @@ python main.py
 
 ```bash
 
-python eval_rl.py
+python eval.py
 
 ```
+3. Launch the HTTP-based distributed system:
+```bash
+python network/run_all.py
+```
 
-> To run the code in a server, you need to customize `train.py` or `eval_rl.py` to a service script.
+> To run the code in a server, you need to customize `main.py` or `eval.py` to a service script.
 > For multiple independent runs, `main.py` should use a different random seed everytime.
 
 
